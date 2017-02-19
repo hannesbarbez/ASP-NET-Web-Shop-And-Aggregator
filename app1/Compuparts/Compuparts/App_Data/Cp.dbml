@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DataSource" Class="CpDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=&quot;my.server.com, 14330&quot;;Persist Security Info=True;User ID=userId" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DataSourceConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CpCategories" Member="CpCategories">
+    <Type Name="CpCategory">
+      <Column Name="cat_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cat_name" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Association Name="CpCategory_CpProduct" Member="CpProducts" ThisKey="cat_id" OtherKey="cat_id" Type="CpProduct" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CpProducts" Member="CpProducts">
+    <Type Name="CpProduct">
+      <Column Name="prod_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="prod_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="prod_desc" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="prod_price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="prod_stock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="prod_model" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="img_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cat_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="man_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="CpProduct_CpOrder" Member="CpOrders" ThisKey="prod_id" OtherKey="prod_id" Type="CpOrder" />
+      <Association Name="CpCategory_CpProduct" Member="CpCategory" ThisKey="cat_id" OtherKey="cat_id" Type="CpCategory" IsForeignKey="true" />
+      <Association Name="CpImage_CpProduct" Member="CpImage" ThisKey="img_id" OtherKey="img_id" Type="CpImage" IsForeignKey="true" />
+      <Association Name="CpManufacter_CpProduct" Member="CpManufacter" ThisKey="man_id" OtherKey="man_id" Type="CpManufacter" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CpCustomers" Member="CpCustomers">
+    <Type Name="CpCustomer">
+      <Column Name="cust_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cust_name" Type="System.String" DbType="VarChar(90) NOT NULL" CanBeNull="false" />
+      <Column Name="cust_streetname" Type="System.String" DbType="VarChar(90) NOT NULL" CanBeNull="false" />
+      <Column Name="cust_streetnumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cust_postalcode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cust_city" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="cust_country_code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cust_phone" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="cust_mail" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+      <Column Name="cust_password" Type="System.String" DbType="VarChar(90) NOT NULL" CanBeNull="false" />
+      <Association Name="CpCustomer_CpOrder" Member="CpOrders" ThisKey="cust_id" OtherKey="cust_id" Type="CpOrder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CpImages" Member="CpImages">
+    <Type Name="CpImage">
+      <Column Name="img_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="img_large" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="img_medium" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="img_small" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="CpImage_CpProduct" Member="CpProducts" ThisKey="img_id" OtherKey="img_id" Type="CpProduct" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CpManufacters" Member="CpManufacters">
+    <Type Name="CpManufacter">
+      <Column Name="man_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="man_name" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Association Name="CpManufacter_CpProduct" Member="CpProducts" ThisKey="man_id" OtherKey="man_id" Type="CpProduct" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CpOrders" Member="CpOrders">
+    <Type Name="CpOrder">
+      <Column Name="ord_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ord_quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ord_delivered" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ord_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ord_code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cust_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="prod_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CpCustomer_CpOrder" Member="CpCustomer" ThisKey="cust_id" OtherKey="cust_id" Type="CpCustomer" IsForeignKey="true" />
+      <Association Name="CpProduct_CpOrder" Member="CpProduct" ThisKey="prod_id" OtherKey="prod_id" Type="CpProduct" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
