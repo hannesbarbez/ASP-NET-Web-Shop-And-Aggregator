@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DataSource" Class="AggDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=&quot;my.server.com, 14330&quot;;Persist Security Info=True;User ID=userId" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DataSourceConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AggCategories" Member="AggCategories">
+    <Type Name="AggCategory">
+      <Column Name="cat_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cat_name" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Association Name="AggCategory_AggProduct" Member="AggProducts" ThisKey="cat_id" OtherKey="cat_id" Type="AggProduct" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AggProducts" Member="AggProducts">
+    <Type Name="AggProduct">
+      <Column Name="prod_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="prod_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="img_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cat_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="man_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cp_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="uth_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="xh_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="AggCategory_AggProduct" Member="AggCategory" ThisKey="cat_id" OtherKey="cat_id" Type="AggCategory" IsForeignKey="true" />
+      <Association Name="AggImage_AggProduct" Member="AggImage" ThisKey="img_id" OtherKey="img_id" Type="AggImage" IsForeignKey="true" />
+      <Association Name="AggManufacter_AggProduct" Member="AggManufacter" ThisKey="man_id" OtherKey="man_id" Type="AggManufacter" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AggImages" Member="AggImages">
+    <Type Name="AggImage">
+      <Column Name="img_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="img_large" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="img_medium" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="img_small" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="AggImage_AggProduct" Member="AggProducts" ThisKey="img_id" OtherKey="img_id" Type="AggProduct" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AggManufacters" Member="AggManufacters">
+    <Type Name="AggManufacter">
+      <Column Name="man_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="man_name" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Association Name="AggManufacter_AggProduct" Member="AggProducts" ThisKey="man_id" OtherKey="man_id" Type="AggProduct" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Agg">
+  <DataContextMoniker Name="/AggDataContext" />
+  <nestedChildShapes>
+    <classShape Id="8e76b8e6-be94-4b5f-b948-432071dd58e2" absoluteBounds="0.5, 0.5, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/AggDataContext/AggCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="088118d6-8ab5-4553-adb9-d27c0862a76e" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7424410b-6da3-4137-b723-13cdf8f68246" absoluteBounds="2.875, 0.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/AggDataContext/AggProduct" />
+      <nestedChildShapes>
+        <elementListCompartment Id="04c243f2-a5d6-43bd-b72c-7a91bf2d0139" absoluteBounds="2.89, 0.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4ce27158-aecb-4b37-a88a-ca615722d329" absoluteBounds="2.875, 3.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/AggDataContext/AggImage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1339b9e8-f4ce-448c-8a08-64996f6a1cf4" absoluteBounds="2.89, 3.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="57461cb8-42e2-4330-b55c-d792525cacfb" absoluteBounds="0.5, 1.875, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/AggDataContext/AggManufacter" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e68b50f1-bc68-4117-87da-d08b251892b7" absoluteBounds="0.51500000000000012, 2.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.09699625651042); (2.875 : 1.09699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AggDataContext/AggCategory/AggCategory_AggProduct" />
+      <nodes>
+        <classShapeMoniker Id="8e76b8e6-be94-4b5f-b948-432071dd58e2" />
+        <classShapeMoniker Id="7424410b-6da3-4137-b723-13cdf8f68246" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.875 : 3.125); (3.875 : 2.84780110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AggDataContext/AggImage/AggImage_AggProduct" />
+      <nodes>
+        <classShapeMoniker Id="4ce27158-aecb-4b37-a88a-ca615722d329" />
+        <classShapeMoniker Id="7424410b-6da3-4137-b723-13cdf8f68246" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 2.36140055338542); (2.875 : 2.36140055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AggDataContext/AggManufacter/AggManufacter_AggProduct" />
+      <nodes>
+        <classShapeMoniker Id="57461cb8-42e2-4330-b55c-d792525cacfb" />
+        <classShapeMoniker Id="7424410b-6da3-4137-b723-13cdf8f68246" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
