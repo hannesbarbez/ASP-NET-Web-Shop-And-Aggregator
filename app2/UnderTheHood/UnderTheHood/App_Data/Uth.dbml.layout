@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Uth">
+  <DataContextMoniker Name="/UthDataContext" />
+  <nestedChildShapes>
+    <classShape Id="bc21bf78-0acd-4a4e-8094-c481d9f46e76" absoluteBounds="0.75, 1.625, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/UthDataContext/UthCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ef4aca40-3a32-4237-a095-506cb91acfc1" absoluteBounds="0.765, 2.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e02fa515-e62c-403f-8993-cd634260ac0b" absoluteBounds="3.5, 1, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/UthDataContext/UthProduct" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0ff6267c-60fc-43e8-97f2-52a8bc05e56f" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6b191561-c4dd-489f-b66c-637e325cf296" absoluteBounds="3.5, 4.875, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/UthDataContext/UthCustomer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="01b8bf76-5536-489b-8f10-2e6c7554b96c" absoluteBounds="3.515, 5.335, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1736e6bb-de6e-4a97-8547-0f1c07ea1369" absoluteBounds="0.75, 6.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/UthDataContext/UthImage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="51b5e654-6a8f-4aa7-9ce4-c0fd289843e7" absoluteBounds="0.765, 6.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4ad2d298-1360-4f3e-84bc-f0967dd5bd9a" absoluteBounds="0.75, 4.125, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/UthDataContext/UthManufacter" />
+      <nestedChildShapes>
+        <elementListCompartment Id="490e80fb-255a-4b75-ba53-3caedeeb003d" absoluteBounds="0.765, 4.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b82da1c5-7545-4464-b35d-148183f26567" absoluteBounds="6.25, 1.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/UthDataContext/UthOrder" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cf19c7b1-8208-4d66-87d8-30449c058c11" absoluteBounds="6.265, 1.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.22199625651042); (3.5 : 2.22199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/UthDataContext/UthCategory/UthCategory_UthProduct" />
+      <nodes>
+        <classShapeMoniker Id="bc21bf78-0acd-4a4e-8094-c481d9f46e76" />
+        <classShapeMoniker Id="e02fa515-e62c-403f-8993-cd634260ac0b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.12621330413662); (3.125 : 5.75121330413662); (3.125 : 2.91230139778646); (3.5 : 2.91230139778646)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/UthDataContext/UthImage/UthImage_UthProduct" />
+      <nodes>
+        <classShapeMoniker Id="1736e6bb-de6e-4a97-8547-0f1c07ea1369" />
+        <classShapeMoniker Id="e02fa515-e62c-403f-8993-cd634260ac0b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.15714495227364); (3.06607443490112 : 3.84107051737252 : JumpStart); (3.18392556509888 : 3.72321938717476 : JumpEnd); (3.28125 : 3.62589495227364); (3.28125 : 3.7588525390625); (3.5 : 3.5401025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/UthDataContext/UthManufacter/UthManufacter_UthProduct" />
+      <nodes>
+        <classShapeMoniker Id="4ad2d298-1360-4f3e-84bc-f0967dd5bd9a" />
+        <classShapeMoniker Id="e02fa515-e62c-403f-8993-cd634260ac0b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.24120198567708); (7.25 : 6.24120198567708); (7.25 : 3.28049967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/UthDataContext/UthCustomer/UthCustomer_UthOrder" />
+      <nodes>
+        <classShapeMoniker Id="6b191561-c4dd-489f-b66c-637e325cf296" />
+        <classShapeMoniker Id="b82da1c5-7545-4464-b35d-148183f26567" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.20274983723958); (6.25 : 2.20274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/UthDataContext/UthProduct/UthProduct_UthOrder" />
+      <nodes>
+        <classShapeMoniker Id="e02fa515-e62c-403f-8993-cd634260ac0b" />
+        <classShapeMoniker Id="b82da1c5-7545-4464-b35d-148183f26567" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

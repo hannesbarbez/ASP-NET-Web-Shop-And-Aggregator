@@ -1,0 +1,69 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="app0.master.cs" Inherits="app0.app0" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+<title><asp:Literal ID="ltTitle" runat="server" Text="Under The Hood Online - "></asp:Literal></title>
+
+<link href="~/Css/Styles.css" rel="Stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="Scripts/prototype.js"></script>
+<script type="text/javascript" src="Scripts/scriptaculous.js?load=effects,builder"></script>
+<script type="text/javascript" src="Scripts/lightbox.js"></script>
+<asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form id="frmDefault" runat="server">
+        <div id="wrap">  
+            <div id="header">
+                <div id="logo">
+                    <h1><a href="../../app2/Default.aspx">Under The Hood Online</a></h1>
+                    <h2>General pc parts web store</h2>
+                </div>
+            </div>
+
+            <div id="search">
+                <h3>Product Search</h3>
+                <asp:Label ID="lblSearch" AssociatedControlID="tbSearch" runat="server" Text="Label">New search:</asp:Label>
+                <asp:TextBox MaxLength="90" ID="tbSearch" runat="server"></asp:TextBox>
+                <asp:Button ID="btnSearch" runat="server" Text="Search" CausesValidation="false" onclick="btnSearch_Click" />
+            </div>
+
+            <div id="menu">
+                <h3>Navigation</h3>
+                <div id="leftMenu">
+                    <ul>
+                        <li><asp:HyperLink runat="server" NavigateUrl= "~/Default.aspx" ID="hlDefault">Home</asp:HyperLink></li>
+                        <li><asp:LinkButton runat="server" ID="hlProducts" onclick="hlProducts_Click">Products</asp:LinkButton></li>
+                        <li><asp:HyperLink runat="server" NavigateUrl= "~/ViewCart.aspx" ID="hlCheckOut">Shopping Cart</asp:HyperLink></li>
+                        <li><asp:HyperLink runat="server" NavigateUrl= "~/Policies.aspx" ID="hlOrderInfo">Ordering &amp; Privacy</asp:HyperLink></li>
+                    </ul>
+                </div>
+                <div id="rightMenu">
+                    <ul>
+                        <li><asp:HyperLink runat="server" NavigateUrl= "~/Contact.aspx" ID="hlContact">Contact Info</asp:HyperLink></li>
+                        <li><asp:LinkButton CausesValidation="false" ID="lbLogin" runat="server" onclick="Login_Click"></asp:LinkButton></li>
+                    </ul>
+                </div>
+            </div>
+        
+            <div id="breadcrumb">
+                <p>
+                    <asp:Literal runat="server" ID="ltBreadcrumb" Text="You are here: "></asp:Literal>
+                </p>
+            </div>
+
+            <div id="content">
+                <asp:ContentPlaceHolder ID="cphMid" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        
+            <div id="footer">
+                <p>&copy;2010 Under The Hood Online. All Rights Reserved. <a href="../../app2/Policies.aspx">Privacy</a>, <a href="../../app2/Contact.aspx">contact</a> &amp; <a href="../../app2/Policies.aspx">ordering information</a>.</p>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

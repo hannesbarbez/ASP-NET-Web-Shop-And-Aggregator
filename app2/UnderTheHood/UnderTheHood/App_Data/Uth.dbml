@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DataSource" Class="UthDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=&quot;my.server.com, 14330&quot;;Persist Security Info=True;User ID=userId" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DataSourceConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.UthCategories" Member="UthCategories">
+    <Type Name="UthCategory">
+      <Column Name="cat_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cat_name" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Association Name="UthCategory_UthProduct" Member="UthProducts" ThisKey="cat_id" OtherKey="cat_id" Type="UthProduct" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UthProducts" Member="UthProducts">
+    <Type Name="UthProduct">
+      <Column Name="prod_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="prod_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="prod_desc" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="prod_price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="prod_stock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="prod_model" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="img_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cat_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="man_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="UthProduct_UthOrder" Member="UthOrders" ThisKey="prod_id" OtherKey="prod_id" Type="UthOrder" />
+      <Association Name="UthCategory_UthProduct" Member="UthCategory" ThisKey="cat_id" OtherKey="cat_id" Type="UthCategory" IsForeignKey="true" />
+      <Association Name="UthImage_UthProduct" Member="UthImage" ThisKey="img_id" OtherKey="img_id" Type="UthImage" IsForeignKey="true" />
+      <Association Name="UthManufacter_UthProduct" Member="UthManufacter" ThisKey="man_id" OtherKey="man_id" Type="UthManufacter" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UthCustomers" Member="UthCustomers">
+    <Type Name="UthCustomer">
+      <Column Name="cust_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cust_name" Type="System.String" DbType="VarChar(90) NOT NULL" CanBeNull="false" />
+      <Column Name="cust_streetname" Type="System.String" DbType="VarChar(90) NOT NULL" CanBeNull="false" />
+      <Column Name="cust_streetnumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cust_postalcode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cust_city" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="cust_country_code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cust_phone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cust_mail" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="cust_password" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="UthCustomer_UthOrder" Member="UthOrders" ThisKey="cust_id" OtherKey="cust_id" Type="UthOrder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UthImages" Member="UthImages">
+    <Type Name="UthImage">
+      <Column Name="img_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="img_large" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="img_medium" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="img_small" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="UthImage_UthProduct" Member="UthProducts" ThisKey="img_id" OtherKey="img_id" Type="UthProduct" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UthManufacters" Member="UthManufacters">
+    <Type Name="UthManufacter">
+      <Column Name="man_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="man_name" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Association Name="UthManufacter_UthProduct" Member="UthProducts" ThisKey="man_id" OtherKey="man_id" Type="UthProduct" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UthOrders" Member="UthOrders">
+    <Type Name="UthOrder">
+      <Column Name="ord_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ord_quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ord_delivered" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ord_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ord_code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cust_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="prod_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="UthCustomer_UthOrder" Member="UthCustomer" ThisKey="cust_id" OtherKey="cust_id" Type="UthCustomer" IsForeignKey="true" />
+      <Association Name="UthProduct_UthOrder" Member="UthProduct" ThisKey="prod_id" OtherKey="prod_id" Type="UthProduct" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
