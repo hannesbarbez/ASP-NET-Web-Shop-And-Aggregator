@@ -1,7 +1,7 @@
 # ASP-NET-Web-Shop-And-Aggregator
 Three dummy web shops selling computer parts, and an aggregator consuming the WCF services they offer. Includes the SQL databases needed to run beneath all 4 sites. All sites are functional and include shopping cart and search engine functionalities. The search function supports the application of result refining filters.
 
-#Uses
+# Uses
 - Three Tier Model
 - ASP.NET
 - C#
@@ -10,5 +10,5 @@ Three dummy web shops selling computer parts, and an aggregator consuming the WC
 - XHTML
 - WCF Web Services
 
-#Disclaimer
+# Disclaimer
 Code has not been maintained since september 2010. As such, it does not necessarily represent my current programming skills and coding style.
