@@ -12,5 +12,5 @@ Three dummy web shops selling computer parts, and an aggregator consuming the WC
 - XHTML
 - WCF Web Services
 
-# Disclaimer
-Code has not been maintained since september 2010. As such, it does not necessarily represent my current programming skills and coding style.
+# FYI
+Code has not been maintained since september 2010.
